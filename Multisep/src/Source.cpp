@@ -7,7 +7,7 @@ using namespace std;
 int main()
 {
     Mat image;
-    image = imread("../images/pokemon.jpg");
+    image = imread("HappyFish.jpg");
     if(image.empty()){
         cout << "No data" << endl;
     }

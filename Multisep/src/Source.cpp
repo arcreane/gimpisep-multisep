@@ -1,12 +1,16 @@
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/opencv.hpp>
+#include <iostream>
 
 using namespace cv;
+using namespace std;
 
 int main()
 {
     Mat image;
-    image = cv::imread("HappyFish.jpg");
+    image = imread("../images/pokemon.jpg");
+    if(image.empty()){
+        cout << "No data" << endl;
+    }
     namedWindow("Goddamn Hippies", WINDOW_AUTOSIZE );
     imshow("Goddamn Hippies", image );
 

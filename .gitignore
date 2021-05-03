@@ -6,4 +6,6 @@ Multisep.vc*
 *.opendb
 .vs*
 out*
-
+*.jpg
+Multisep\images
+Multisep/Readme

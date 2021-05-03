@@ -1,0 +1,7 @@
+*.dll
+*.sln
+Multisep.vc*
+*.lnk
+*.db
+*.opendb
+

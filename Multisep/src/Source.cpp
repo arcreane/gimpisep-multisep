@@ -6,7 +6,7 @@ using namespace cv;
 int main()
 {
     Mat image;
-    image = cv::imread("cartman.jpg");
+    image = cv::imread("HappyFish.jpg");
     namedWindow("Goddamn Hippies", WINDOW_AUTOSIZE );
     imshow("Goddamn Hippies", image );
 

@@ -5,3 +5,5 @@ Multisep.vc*
 *.db
 *.opendb
 .vs*
+out*
+

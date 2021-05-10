@@ -1,13 +1,14 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <sstream>
+#include "services/CheckInt.h"
+
 
 using namespace cv;
 using namespace std;
 
 int main()
 {
-
 	cout << "Welcome in your favorite image editor" << endl;
 	cout << "Choose what you want to do with your image" << endl;
 	cout << "Enter the int associated with your choice" << endl;
@@ -16,15 +17,10 @@ int main()
 	cout << "3 - Lighten / Darken" << endl;
 	cout << "4 - Panorama / Stitching" << endl;
 	cout << "5 - Canny Edge Detection" << endl;
-	int userChoice;
-	cin >> userChoice;
-	while (cin.fail()) {
-		cout << "This is not an int..." << endl;
-		cin.clear();
-		cin.ignore(256, '\n');
-		cin >> userChoice;
-	}
-
+	
+	int userChoice; 
+	
+	userChoice << checkInt();
 
 	switch (userChoice) {
 	case 1 :

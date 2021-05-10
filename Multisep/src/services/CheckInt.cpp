@@ -1,7 +1,12 @@
 #include <sstream>
 #include <iostream>
+#include "CheckInt.h"
 
-int CheckInt(int numberToCheck) {
+using namespace std;
+
+int checkInt() {
+	int numberToCheck;
+
 	cin >> numberToCheck;
 	while (cin.fail()) {
 		cout << "This is not an int..." << endl;

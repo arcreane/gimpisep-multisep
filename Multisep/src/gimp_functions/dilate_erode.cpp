@@ -66,7 +66,6 @@ int dilate_erosion()
 		cout << "This is not a valid option" << endl;
 		break;
 	}
-
     
     return 0; 
 }

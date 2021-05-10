@@ -1,5 +1,6 @@
 #include <sstream>
 #include <iostream>
+using namespace std;
 
 int CheckInt(int numberToCheck) {
 	cin >> numberToCheck;

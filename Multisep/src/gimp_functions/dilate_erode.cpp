@@ -23,23 +23,23 @@ static void Erosion(int, void*){
     imshow("Erosion images", erodeImage);
 }
 
-int main(int argc, char* argv[])
-{
-    image = imread("../images/HappyFish.jpg");
-    if(image.empty()){
-        cout << "No data find" << endl;
-        return -1;
-    }
-
-    namedWindow("Dilatation images", WINDOW_AUTOSIZE);
-    namedWindow("Erosion images", WINDOW_AUTOSIZE);
-     
-    createTrackbar("Kernel 2n+1", "Dilatation images", &size_dilatation, 10, Dilatation );
-    createTrackbar("Kernel 2n+1", "Erosion images", &size_erosion, 10, Erosion );
-    Dilatation(0, 0);
-    Erosion(0, 0);
-
-    waitKey(0);
-    return 0;
-    
-}
+//int main(int argc, char* argv[])
+//{
+//    image = imread("../images/HappyFish.jpg");
+//    if(image.empty()){
+//        cout << "No data find" << endl;
+//        return -1;
+//    }
+//
+//    namedWindow("Dilatation images", WINDOW_AUTOSIZE);
+//    namedWindow("Erosion images", WINDOW_AUTOSIZE);
+//     
+//    createTrackbar("Kernel 2n+1", "Dilatation images", &size_dilatation, 10, Dilatation );
+//    createTrackbar("Kernel 2n+1", "Erosion images", &size_erosion, 10, Erosion );
+//    Dilatation(0, 0);
+//    Erosion(0, 0);
+//
+//    waitKey(0);
+//    return 0;
+//    
+//}

@@ -23,7 +23,7 @@ static void Erosion(int, void*){
     imshow("Erosion images", erodeImage);
 }
 
-int main(int argc, char* argv[])
+int dilate_erosion()
 {
     image = imread("../images/HappyFish.jpg");
     if(image.empty()){

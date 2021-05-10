@@ -20,7 +20,7 @@ int main()
 	
 	int userChoice; 
 	
-	userChoice << checkInt();
+	userChoice = checkInt();
 
 	switch (userChoice) {
 	case 1 :

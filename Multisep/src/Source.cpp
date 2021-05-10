@@ -4,11 +4,15 @@
 #include "services/CheckInt.h"
 
 
+#include "gimp_functions/lighten_darken.h"
+
+
 using namespace cv;
 using namespace std;
 
 int main()
 {
+
 	cout << "Welcome in your favorite image editor" << endl;
 	cout << "Choose what you want to do with your image" << endl;
 	cout << "Enter the int associated with your choice" << endl;
@@ -21,7 +25,6 @@ int main()
 	int userChoice; 
 	
 	userChoice = checkInt();
-
 	switch (userChoice) {
 	case 1 :
 		cout << "1 - Dilatation / Erosion" << endl;
@@ -44,6 +47,23 @@ int main()
 	}
 	String waitingTime;
 	cin >> waitingTime;
+
+	Mat image, image2;
+	image = imread("HappyFish.jpg", IMREAD_COLOR);
+	image2 = imread("HappyFish.jpg", IMREAD_COLOR);
+	if (image.empty()) {
+		cout << "No data" << endl;
+	}
+
+
+	imshow("Happy Fish", image);
+	lighten_darken(image, 150);
+	imshow("Happy Fish lighten", image);
+	lighten_darken(image2, -80);
+	imshow("Happy Fish darken", image2);
+
+	waitKey(0);
+
 
     return 0;
 }

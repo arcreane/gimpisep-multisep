@@ -10,6 +10,7 @@ int main()
     image = imread("../images/pokemon.jpg");
     if(image.empty()){
         cout << "No data" << endl;
+        return -1;
     }
     namedWindow("Goddamn Hippies", WINDOW_AUTOSIZE );
     imshow("Goddamn Hippies", image );

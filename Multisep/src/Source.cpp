@@ -3,6 +3,7 @@
 #include <sstream>
 #include "services/CheckInt.h"
 
+
 #include "gimp_functions/lighten_darken.h"
 
 
@@ -11,9 +12,9 @@ using namespace std;
 
 int main()
 {
-
+	string nameImage = "HappyFish.jpg";
 	Mat image, image2;
-	image = imread("HappyFish.jpg", IMREAD_COLOR);
+	image = imread(nameImage, IMREAD_COLOR);
 	if (image.empty()) {
 		cout << "No data" << endl;
 	}
@@ -43,15 +44,8 @@ int main()
 			break;
 		case 3:
 			cout << "3 - Lighten / Darken" << endl;
-			cout << "Please input a value (-255 to 255) to lighten or darken the image" << endl;
-
-			// Ne fonctionne pas dans la boucle, mais fonctionne bien en dehors
-			//cin >> value;
-			//cout <<" your value : " << value << endl;
-			//lighten_darken(image, value);
-			//lighten_darken(image, value);
-			//namedWindow("Happy Fish");
-			//imshow("Happy Fish", image);
+			
+			show_lighten_darken(nameImage, image);
 
 			break;
 		case 4:
@@ -69,19 +63,13 @@ int main()
 		}
 	} while (userChoice != -1);
 
-	//string waitingtime;
-	//cin >> waitingtime;
+	
+	//show_lighten_darken(nameImage, image);
+
+	// créer un rectangle, récupérer le clic de la souris event
 
 
-	cout << "Please input a value (-255 to 255) to lighten or darken the image" << endl;
-	int value;
-	cin >> value;
-	cout << " your value : " << value << endl;
-	lighten_darken(image, value);
-	namedWindow("Happy Fish");
-	imshow("Happy Fish", image);
-
-
+	destroyAllWindows();
 	waitKey(0);
 	return 0;
 }

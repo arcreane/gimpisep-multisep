@@ -10,9 +10,9 @@ int main() {
     string filename;
     ofstream fileC;
     string windowName = "test1";
-    int resizeX;
-    int resizeY;
-    int choice;
+    double resizeX;
+    double resizeY;
+    double choice;
     //cout << "which file do you want to open?";
     //cin >> filename;
 

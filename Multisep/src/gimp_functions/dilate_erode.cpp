@@ -1,5 +1,6 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
+#include "../services/CheckInt.h"
 
 using namespace cv;
 using namespace std;
@@ -36,14 +37,7 @@ int dilate_erosion()
 	cout << "Which mode do you want to use ?" << endl;
 	cout << "1 - Dilatation" << endl;
 	cout << "2 - Erosion" << endl;
-    int userChoice;
-	cin >> userChoice;
-	while (cin.fail()) {
-		cout << "This is not an int..." << endl;
-		cin.clear();
-		cin.ignore(256, '\n');
-		cin >> userChoice;
-	}
+    int userChoice = checkInt();
 
     switch (userChoice) {
 	case 1 :

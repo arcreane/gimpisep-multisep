@@ -13,15 +13,10 @@ int main() {
     double resizeX;
     double resizeY;
     double choice;
-    //cout << "which file do you want to open?";
-    //cin >> filename;
+    
 
     Mat image = imread("Happyfish.jpg");
-    //fileC.open(filename.c_str());
-    //namedWindow(windowName);
-    //imshow("Name", image);
-    //fileC << "test";
-    //fileC.close();
+    
     cout << "Do you want to :  \n 1 : Enlarge the picture \n 2 : Reduce the picture \n";
     cin >> choice;
     cout << "You chose option " << choice << "\n";
@@ -71,24 +66,6 @@ int main() {
     else {
         cout << "The number is not an option \n";
     }
-
-    //cout << "Type a number for X to resize : \n";
-    //cin >> resizeX;
-    //cout << "Your number for X is: \n" << resizeX << "\n";
-
-    //cout << "Type a number for Y to resize : \n";
-    //cin >> resizeY;
-    //cout << "Your number for Y is: \n" << resizeY << "\n";
-
-    //// Scaling factors
-    //double scaleX = resizeX;
-    //double scaleY = resizeY;
-
-    ////Resize
-    //cv::resize(image, scaleD, Size(), scaleX, scaleY, INTER_LINEAR);
-
-    //namedWindow("scalinupWindow", WINDOW_AUTOSIZE);
-    //imshow("scalinupWindow", scaleD);
 
     waitKey(0);
 

@@ -5,37 +5,45 @@
 using namespace cv;
 using namespace std;
 
-int size_dilatation = 0;
-int size_erosion = 0;
-Mat image, kernel, image_modified;
-
-static void Dilatation(int, void*){
-    int n = 2 * size_dilatation + 1;
-    Mat kernel = getStructuringElement(MORPH_RECT, Size(n, n), Size(size_dilatation, size_dilatation));
+Mat Dilatation(Mat image, int value){
+	Mat image_modified;
+    int n = 2 * value + 1;
+    Mat kernel = getStructuringElement(MORPH_RECT, Size(n, n), Size(value, value));
     dilate(image, image_modified, kernel);
-    imshow("Modified images", image_modified);
+	return image_modified;
 }
 
-static void Erosion(int, void*){
-    int n = 2 * size_erosion + 1;
-    Mat kernel = getStructuringElement(MORPH_RECT, Size(n, n), Size(size_erosion, size_erosion));
+Mat Erosion(Mat image, int value){
+	Mat image_modified;
+    int n = 2 * value + 1;
+    Mat kernel = getStructuringElement(MORPH_RECT, Size(n, n), Size(value, value));
     erode(image, image_modified, kernel);
-    imshow("Modified images", image_modified);
+	return image_modified;
 }
 
 Mat dilate_erosion(string windowName, Mat img, int& save) 
 {
-    image = img;
+	Mat image_modified;
     int close = 0;
+	int mode = 0;
+	int value = 0;
     namedWindow(windowName, WINDOW_AUTOSIZE);
 
     while(close !=1){
-        createTrackbar("Dilatation", windowName, &size_dilatation, 10, Dilatation );
-        createTrackbar("Erosion", windowName, &size_erosion, 10, Erosion );
+		createTrackbar("Mode", windowName, &mode, 1);
+		createTrackbar("Kernel 2n+1", windowName, &value, 10);
         createTrackbar("Save", windowName, &save, 1);
 		createTrackbar("Close", windowName, &close, 1);
 
-        imshow(windowName, image_modified);
+		if (mode == 0) {
+			image_modified = Erosion(img,value);
+		}
+		else {
+			image_modified = Dilatation(img, value);
+		}
+
+		imshow(windowName, image_modified);
+		waitKey(50);
     }
 
     destroyWindow(windowName);

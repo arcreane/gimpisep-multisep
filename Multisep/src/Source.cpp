@@ -10,17 +10,6 @@ using namespace std;
 
 int main()
 {
-	/*string nameImage = "HappyFish.jpg";
-	cout << "Please select the image you want to work on" << endl;
-	char const * pathImage = tinyfd_openFileDialog("", "", 0, NULL, "image files", 0);
-
-	Mat image, image2;
-	image = imread(pathImage, IMREAD_COLOR);
-	imshow("image", image);
-	image = imread(nameImage, IMREAD_COLOR);
-	if (image.empty()) {
-		cout << "No data" << endl;
-	}
 	int userChoice;
 
 	do {
@@ -35,11 +24,12 @@ int main()
 		cout << "-1 - To exit\n" << endl;
 
 		userChoice = checkInt();
-		int value;   // used in case 3
+		MyImage workedImage = MyImage();
 
 		switch (userChoice) {
 		case 1:
 			cout << "1 - Dilatation / Erosion" << endl;
+			workedImage.to_dilate_erode("Worked Image");
 			break;
 		case 2:
 			cout << "2 - Resizing" << endl;
@@ -47,12 +37,12 @@ int main()
 			break;
 		case 3:
 			cout << "3 - Lighten / Darken" << endl;
-			
-			//show_lighten_darken(nameImage, image);
-
+			workedImage.to_lighten_darken("Worked Image");
+			workedImage.to_save();
 			break;
 		case 4:
 			cout << "4 - Panorama / Stitching" << endl;
+			workedImage.to_stitch_panorama("Worked Image");
 			break;
 		case 5:
 			cout << "5 - Canny Edge Detection" << endl;
@@ -65,19 +55,5 @@ int main()
 			break;
 		}
 	} while (userChoice != -1);
-
-	// cr�er un rectangle, r�cup�rer le clic de la souris event
-	*/
-
-
-	MyImage workedImage = MyImage();
-	workedImage.to_dilate_erode("Worked Image");
-	workedImage.to_lighten_darken("Worked Image");
-	workedImage.to_save();
-
-	//destroyAllWindows();
-
-
-	waitKey(30000);
 	return 0;
 }

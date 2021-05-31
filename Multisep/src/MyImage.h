@@ -9,6 +9,7 @@ class MyImage
 		MyImage();   // constructor
 		void to_lighten_darken(std::string windowName);
 		void to_dilate_erode(std::string windowName);
+		void to_stitch_panorama(std::string windowName);
 		void to_save();
 
 	private:

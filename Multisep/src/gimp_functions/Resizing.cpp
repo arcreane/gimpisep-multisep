@@ -4,7 +4,10 @@
 #include <opencv2/opencv.hpp>
 using namespace std;
 using namespace cv;
+
 int main() {
+
+    //Variables
 
     Mat source, scaleD, scaleU;
     string filename;
@@ -12,19 +15,15 @@ int main() {
     string windowName = "test1";
     double resizeX;
     double resizeY;
-    int choice;
-    //cout << "which file do you want to open?";
-    //cin >> filename;
-
-    Mat image = imread("../images/Happyfish.jpg");
-    //fileC.open(filename.c_str());
-    //namedWindow(windowName);
-    //imshow("Name", image);
-    //fileC << "test";
-    //fileC.close();
+    double choice;
+    
+    //Image name
+    Mat image = imread("Happyfish.jpg");
+    
+    //User's choice
     cout << "Do you want to :  \n 1 : Enlarge the picture \n 2 : Reduce the picture \n";
     cin >> choice;
-    cout << "You chose option " << choice << "\n";
+    cout << "You chose option " << choice << "\n" << "You want to enlarge the picture" ;
 
     if (choice == 1)
     {
@@ -55,7 +54,7 @@ int main() {
 
         cout << "Type a number for Y to resize : \n";
         cin >> resizeY;
-        cout << "Your number for Y is: \n" << resizeY << "\n";
+        cout << "Your number for Y is: \n" << resizeY << "\n" << "You want to reduce the picture";
 
         // Scaling factors
         double scaleUpX = resizeX;

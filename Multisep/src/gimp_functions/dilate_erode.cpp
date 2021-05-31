@@ -5,61 +5,39 @@
 using namespace cv;
 using namespace std;
 
-Mat image, dilateImage, erodeImage, kernel;
 int size_dilatation = 0;
 int size_erosion = 0;
-
+Mat image, kernel, image_modified;
 
 static void Dilatation(int, void*){
     int n = 2 * size_dilatation + 1;
-    kernel = getStructuringElement(MORPH_RECT, Size(n, n), Size(size_dilatation, size_dilatation));
-    dilate(image, dilateImage, kernel);
-    imshow("Dilatation images", dilateImage);
+    Mat kernel = getStructuringElement(MORPH_RECT, Size(n, n), Size(size_dilatation, size_dilatation));
+    dilate(image, image_modified, kernel);
+    imshow("Modified images", image_modified);
 }
 
 static void Erosion(int, void*){
     int n = 2 * size_erosion + 1;
-    kernel = getStructuringElement(MORPH_RECT, Size(n, n), Size(size_erosion, size_erosion));
-    erode(image, erodeImage, kernel);
-    imshow("Erosion images", erodeImage);
+    Mat kernel = getStructuringElement(MORPH_RECT, Size(n, n), Size(size_erosion, size_erosion));
+    erode(image, image_modified, kernel);
+    imshow("Modified images", image_modified);
 }
 
-
-int dilate_erosion()
+Mat dilate_erosion(string windowName, Mat img, int& save) 
 {
-    image = imread("../images/HappyFish.jpg");
-    if(image.empty()){
-        cout << "No data find" << endl;
-        return -1;
+    image = img;
+    int close = 0;
+    namedWindow(windowName, WINDOW_AUTOSIZE);
+
+    while(close !=1){
+        createTrackbar("Dilatation", windowName, &size_dilatation, 10, Dilatation );
+        createTrackbar("Erosion", windowName, &size_erosion, 10, Erosion );
+        createTrackbar("Save", windowName, &save, 1);
+		createTrackbar("Close", windowName, &close, 1);
+
+        imshow(windowName, image_modified);
     }
 
-    cout << "Welcome in the dilate/erode mode" << endl;
-	cout << "Which mode do you want to use ?" << endl;
-	cout << "1 - Dilatation" << endl;
-	cout << "2 - Erosion" << endl;
-    int userChoice = checkInt();
-
-    switch (userChoice) {
-	case 1 :
-		cout << "Welcome in the Dilatation mode" << endl;
-        cout << "You can change the kernel size with the trackbar at the top of the window" << endl;
-        namedWindow("Dilatation images", WINDOW_AUTOSIZE);
-        createTrackbar("Kernel 2n+1", "Dilatation images", &size_dilatation, 10, Dilatation );
-        Dilatation(0, 0);
-        waitKey(0);
-		break;
-	case 2:
-		cout << "Welcome in the Erosion mode" << endl;
-        cout << "You can change the kernel size with the trackbar at the top of the window" << endl;
-        namedWindow("Erosion images", WINDOW_AUTOSIZE);
-        createTrackbar("Kernel 2n+1", "Erosion images", &size_erosion, 10, Erosion );
-        Erosion(0, 0);
-        waitKey(0);
-		break;
-	default:
-		cout << "This is not a valid option" << endl;
-		break;
-	}
-    
-    return 0; 
+    destroyWindow(windowName);
+    return image_modified; 
 }

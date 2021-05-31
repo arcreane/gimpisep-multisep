@@ -14,6 +14,7 @@ Mat show_lighten_darken(string windowName, Mat image, int& save) {
 	int brightnessValue = 0, darknessValue = 0, value = 0, close = 0;
 	Mat image_modified;
 	namedWindow(windowName, WINDOW_AUTOSIZE);
+	
 	while (close != 1) {
 		createTrackbar("Brightness", windowName, &brightnessValue, 255);
 		createTrackbar("Darkness", windowName, &darknessValue, 255);
@@ -28,7 +29,7 @@ Mat show_lighten_darken(string windowName, Mat image, int& save) {
 
 	destroyWindow(windowName);
 	return image_modified;
-	// faire une fonction sauvegarder ? ou return la dernière image ?
+	// faire une fonction sauvegarder ? ou return la derniï¿½re image ?
 
 
 }

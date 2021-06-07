@@ -1,0 +1,14 @@
+*.dll
+*.sln
+Multisep.vc*
+*.lnk
+*.db
+*.opendb
+.vs*
+out*
+*.jpg
+Multisep/images
+Multisep/Readme
+Multisep/out
+Project
+Nouveau dossier

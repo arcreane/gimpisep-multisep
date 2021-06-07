@@ -33,7 +33,7 @@ int main()
 			break;
 		case 2:
 			cout << "2 - Resizing" << endl;
-
+			workedImage.to_resize("Worked Image");
 			break;
 		case 3:
 			cout << "3 - Lighten / Darken" << endl;
@@ -46,6 +46,7 @@ int main()
 			break;
 		case 5:
 			cout << "5 - Canny Edge Detection" << endl;
+			workedImage.to_canny_edge_detection("Worked Image");
 			break;
 		case -1:
 			cout << "See you next time !" << endl;

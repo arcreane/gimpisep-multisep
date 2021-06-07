@@ -8,8 +8,10 @@ class MyImage
 	public:
 		MyImage();   // constructor
 		void to_lighten_darken(std::string windowName);
+		void to_resize(std::string windowName);
 		void to_dilate_erode(std::string windowName);
 		void to_stitch_panorama(std::string windowName);
+		void to_canny_edge_detection(std::string WindowName);
 		void to_save();
 
 	private:

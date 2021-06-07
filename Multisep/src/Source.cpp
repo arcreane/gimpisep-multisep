@@ -32,7 +32,7 @@ int main()
 			workedImage.to_dilate_erode("Worked Image");
 			break;
 		case 2:
-			cout << "2 - Resizing" << endl;
+			cout << "2 -Resizing" << endl;
 
 			break;
 		case 3:

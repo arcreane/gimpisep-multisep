@@ -1,5 +1,6 @@
 #include "MyVideo.h"
 #include "gimp_functions/video_bright_contrast.h"
+#include "gimp_functions/video_face_recognition.h"
 #include "tinyfiledialogs/tinyfiledialogs.h"
 #include <opencv2/opencv.hpp>
 #include <iostream>
@@ -16,7 +17,7 @@ MyVideo::MyVideo()
 } // constructor
 
 
-int MyVideo::to_bright_contrast() {   // -1 --> the video has not been read correctly
+void MyVideo::to_bright_contrast() {   // -1 --> the video has not been read correctly
 	//open the video file for reading
 	VideoCapture cap(m_pathVideo);
 	video_bright_contrast(cap, m_parameters);
@@ -24,10 +25,14 @@ int MyVideo::to_bright_contrast() {   // -1 --> the video has not been read corr
 	if (m_parameters[0] == 1) {		// if save == 1
 		to_save();
 	}
-
-	return 0;
 }
 
+void MyVideo::to_face_recognition() {
+	//open the video file for reading
+	VideoCapture cap(m_pathVideo);
+	video_face_recognition(cap);
+
+}
 
 void MyVideo::to_save()
 {

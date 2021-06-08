@@ -5,7 +5,7 @@
 #include "opencv2/highgui.hpp"
 #include "opencv2/stitching.hpp"
 #include <iostream>
-
+#include "panorama_stitching.h"
 
 using namespace std;
 using namespace cv;

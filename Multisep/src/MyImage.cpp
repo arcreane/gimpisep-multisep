@@ -7,6 +7,8 @@
 #include "gimp_functions/lighten_darken.h"
 #include "gimp_functions/dilate_erode.h"
 #include "gimp_functions/panorama_stitching.h"
+#include "gimp_functions/Resizing.h"
+#include "gimp_functions/CannyEdgeDetection.h"
 using namespace cv;
 
 MyImage::MyImage()
@@ -25,6 +27,11 @@ void MyImage::to_lighten_darken(std::string windowName)
 	m_image = show_lighten_darken(windowName, m_originalImage, m_save);
 }
 
+void MyImage::to_resize(std::string windowName) 
+{
+	m_image = resizing(windowName, m_originalImage, m_save);
+}
+
 void MyImage::to_dilate_erode(std::string WindowName)
 {
 	m_image = dilate_erosion(WindowName, m_originalImage, m_save);
@@ -33,6 +40,11 @@ void MyImage::to_dilate_erode(std::string WindowName)
 void MyImage::to_stitch_panorama(std::string WindowName)
 {
 	m_image = panorama_stitching(WindowName, m_originalImage);
+}
+
+void MyImage::to_canny_edge_detection(std::string WindowName)
+{
+	m_image = cannyEdgeDetection(WindowName, m_originalImage, m_save);
 }
 
 void MyImage::to_save()

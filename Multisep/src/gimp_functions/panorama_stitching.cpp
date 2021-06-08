@@ -6,6 +6,7 @@
 #include "opencv2/stitching.hpp"
 #include <iostream>
 #include "panorama_stitching.h"
+#include <fstream>
 
 using namespace std;
 using namespace cv;
@@ -26,12 +27,16 @@ Mat panorama_stitching(String windowName, Mat image) {
 	Stitcher::Status status = stitcher->stitch(imgs, image_modified);
 
 	if (status != Stitcher::OK)
-		{
-			cout << "Can't stitch images, error code = " << int(status) << endl;
-		}
+	{
+		cout << "Can't stitch images, error code = " << int(status) << endl;
+		image_modified = image;
+	}
+	else {
+		imshow(windowName, image_modified);
+		waitKey(0);
+	};
 
-	imshow(windowName, image_modified);
-	waitKey(50);
+	
 	destroyWindow(windowName);
 	return image_modified;
 }

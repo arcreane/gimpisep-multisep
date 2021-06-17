@@ -11,6 +11,8 @@ public:
 	void to_bright_contrast();
 	void to_face_recognition();
 	void to_save();
+	int getM_save();
+	void browseVideo();
 
 private:
 	char const* m_pathVideo;

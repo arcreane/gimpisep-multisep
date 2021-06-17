@@ -1,4 +1,4 @@
-#include "../services/CheckInt.h"
+#include "../services/checkInt.h"
 #include <iostream>
 #include <fstream>
 #include <string>

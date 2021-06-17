@@ -29,9 +29,6 @@ Mat show_lighten_darken(string windowName, Mat image, int& save) {
 
 	destroyWindow(windowName);
 	return image_modified;
-	// faire une fonction sauvegarder ? ou return la derni�re image ?
-
-
 }
 
 

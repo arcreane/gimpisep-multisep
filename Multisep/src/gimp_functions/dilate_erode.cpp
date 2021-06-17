@@ -4,7 +4,7 @@
 using namespace cv;
 using namespace std;
 
-Mat Dilatation(Mat image, int value){
+Mat dilatation(Mat image, int value){
 	Mat image_modified;
     int n = 2 * value + 1;
     Mat kernel = getStructuringElement(MORPH_RECT, Size(n, n), Size(value, value));
@@ -12,7 +12,7 @@ Mat Dilatation(Mat image, int value){
 	return image_modified;
 }
 
-Mat Erosion(Mat image, int value){
+Mat erosion(Mat image, int value){
 	Mat image_modified;
     int n = 2 * value + 1;
     Mat kernel = getStructuringElement(MORPH_RECT, Size(n, n), Size(value, value));
@@ -35,10 +35,10 @@ Mat dilate_erosion(string windowName, Mat img, int& save)
 		createTrackbar("Close", windowName, &close, 1);
 
 		if (mode == 0) {
-			image_modified = Erosion(img,value);
+			image_modified = erosion(img,value);
 		}
 		else {
-			image_modified = Dilatation(img, value);
+			image_modified = dilatation(img, value);
 		}
 
 		imshow(windowName, image_modified);

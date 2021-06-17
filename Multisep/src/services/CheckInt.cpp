@@ -1,6 +1,6 @@
 #include <sstream>
 #include <iostream>
-#include "CheckInt.h"
+#include "checkInt.h"
 
 using namespace std;
 

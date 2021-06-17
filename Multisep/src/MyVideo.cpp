@@ -11,11 +11,13 @@ using namespace std;
 
 MyVideo::MyVideo()
 {
-	m_pathVideo = tinyfd_openFileDialog("", "", 0, NULL, "image files", 0);
 	m_save = 0;
-
 } // constructor
 
+void MyVideo::browseVideo()
+{
+	m_pathVideo = tinyfd_openFileDialog("", "", 0, NULL, "image files", 0);
+}
 
 void MyVideo::to_bright_contrast() {   // -1 --> the video has not been read correctly
 	//open the video file for reading
@@ -75,4 +77,10 @@ void MyVideo::to_save()
 
 	// When everything done, release the video capture and write object
 	video_to_save.release();
+	m_save = 0;			// reinitialize save value
+}
+
+int MyVideo::getM_save()
+{
+	return m_save;
 }

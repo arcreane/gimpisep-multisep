@@ -13,6 +13,8 @@ class MyImage
 		void to_stitch_panorama(std::string windowName);
 		void to_canny_edge_detection(std::string WindowName);
 		void to_save();
+		void browseImage();
+		int getM_save();
 
 	private:
 		char const* m_pathImage;

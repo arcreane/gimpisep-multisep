@@ -3,24 +3,26 @@
 #include <opencv2/opencv.hpp>
 #include <iostream>
 #include <sstream>
-#include "services/CheckInt.h"
+#include "services/checkInt.h"
 #include "gimp_functions/lighten_darken.h"
 #include "gimp_functions/dilate_erode.h"
 #include "gimp_functions/panorama_stitching.h"
-#include "gimp_functions/Resizing.h"
-#include "gimp_functions/CannyEdgeDetection.h"
+#include "gimp_functions/resizing.h"
+#include "gimp_functions/cannyEdgeDetection.h"
 using namespace cv;
 
 MyImage::MyImage()
 {
+	m_save = 0;
+} // constructor
+
+void MyImage::browseImage() {
 	m_pathImage = tinyfd_openFileDialog("", "", 0, NULL, "image files", 0);
 
 	m_name = "Image file";
 	m_originalImage = imread(m_pathImage, IMREAD_COLOR);
 	m_image = m_originalImage.clone();
-	m_save = 0;
-
-} // constructor
+}
 
 void MyImage::to_lighten_darken(std::string windowName)
 {
@@ -52,3 +54,9 @@ void MyImage::to_save()
 	m_pathImage = tinyfd_saveFileDialog("", "", 0, NULL, "image files");
 	imwrite(m_pathImage, m_image);
 }
+
+int MyImage::getM_save()
+{
+	return m_save;
+}
+

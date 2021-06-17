@@ -103,5 +103,7 @@ int main()
 		}
 	} while (fileChoice != -1);
 
+	cout << "See you next time !" << endl;
+	waitKey(500);
 	return 0;
 }

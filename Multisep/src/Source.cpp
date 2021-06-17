@@ -60,6 +60,7 @@ int main()
 						break;
 					case 5:
 						cout << "5 - Canny Edge Detection" << endl;
+						workedImage.to_canny_edge_detection("Worked Image");
 						break;
 					case -1:
 						break;
@@ -102,6 +103,5 @@ int main()
 		}
 	} while (fileChoice != -1);
 
-	cout << "See you next time !" << endl;
 	return 0;
 }

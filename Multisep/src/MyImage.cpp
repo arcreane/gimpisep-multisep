@@ -41,7 +41,7 @@ void MyImage::to_dilate_erode(std::string WindowName)
 
 void MyImage::to_stitch_panorama(std::string WindowName)
 {
-	m_image = panorama_stitching(WindowName, m_originalImage);
+	m_image = panorama_stitching(WindowName, m_originalImage, m_save);
 }
 
 void MyImage::to_canny_edge_detection(std::string WindowName)
